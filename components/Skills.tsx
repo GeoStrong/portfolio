@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SKILL_CATEGORIES } from "../types/constants";
+import SkillsScene from "./SkillsScene";
 
 const Skills: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Skills: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-black mb-4">Tech Stack</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-linear-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             A comprehensive overview of the tools and technologies I use to
             build robust and scalable web applications.
@@ -47,6 +48,7 @@ const Skills: React.FC = () => {
           ))}
         </div>
       </div>
+      <SkillsScene />
     </section>
   );
 };

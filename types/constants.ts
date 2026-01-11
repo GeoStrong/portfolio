@@ -5,6 +5,8 @@ import {
   Education,
   Language,
 } from "./types";
+import treasureHuntLogo from "../src/images/treasure-hunt-logo.png";
+import adminDashboardLogo from "../src/images/admin-dashboard-logo.png";
 
 export const PERSONAL_INFO = {
   name: "Giorgi Jobava",
@@ -25,6 +27,7 @@ export interface SkillDetail {
   icon: string;
   description: string;
   color: string;
+  img?: string;
 }
 
 export interface SkillCategoryWithDetails {
@@ -41,48 +44,56 @@ export const SKILL_CATEGORIES_EXTENDED: SkillCategoryWithDetails[] = [
         icon: "html5",
         description: "Semantic markup and accessibility standards.",
         color: "#E34F26",
+        img: "https://cdn.simpleicons.org/html5/E34F26.svg",
       },
       {
         name: "CSS3",
         icon: "css3",
         description: "Modern styling including Flexbox, Grid, and animations.",
         color: "#1572B6",
+        img: "https://cdn.simpleicons.org/css3/1572B6.svg",
       },
       {
         name: "JavaScript",
         icon: "javascript",
         description: "Core language for web logic and interactivity.",
         color: "#F7DF1E",
+        img: "https://cdn.simpleicons.org/javascript/F7DF1E.svg",
       },
       {
         name: "TypeScript",
         icon: "typescript",
         description: "Strict typing for scalable and robust codebases.",
         color: "#3178C6",
+        img: "https://cdn.simpleicons.org/typescript/3178C6.svg",
       },
       {
         name: "React",
         icon: "react",
         description: "Building component-based user interfaces.",
         color: "#61DAFB",
+        img: "https://cdn.simpleicons.org/react/61DAFB.svg",
       },
       {
         name: "Next.js",
         icon: "nextdotjs",
         description: "SSR, SSG, and optimized React applications.",
         color: "#FFFFFF",
+        img: "https://cdn.simpleicons.org/nextdotjs/FFFFFF.svg",
       },
       {
         name: "Node.js",
         icon: "nodedotjs",
         description: "JavaScript runtime for server-side logic.",
         color: "#339933",
+        img: "https://cdn.simpleicons.org/nodedotjs/339933.svg",
       },
       {
         name: "Three.js",
         icon: "threedotjs",
         description: "3D graphics in the browser.",
         color: "#FFFFFF",
+        img: "https://cdn.simpleicons.org/threedotjs/FFFFFF.svg",
       },
     ],
   },
@@ -94,18 +105,21 @@ export const SKILL_CATEGORIES_EXTENDED: SkillCategoryWithDetails[] = [
         icon: "tailwindcss",
         description: "Utility-first CSS framework for rapid UI dev.",
         color: "#06B6D4",
+        img: "https://cdn.simpleicons.org/tailwindcss/06B6D4.svg",
       },
       {
         name: "Framer Motion",
         icon: "framer",
         description: "Production-ready motion library for React.",
         color: "#0055FF",
+        img: "https://cdn.simpleicons.org/framer/0055FF.svg",
       },
       {
         name: "Figma",
         icon: "figma",
         description: "Design tool for UI/UX prototyping.",
         color: "#F24E1E",
+        img: "https://cdn.simpleicons.org/figma/F24E1E.svg",
       },
     ],
   },
@@ -117,30 +131,35 @@ export const SKILL_CATEGORIES_EXTENDED: SkillCategoryWithDetails[] = [
         icon: "git",
         description: "Version control for collaborative development.",
         color: "#F05032",
+        img: "https://cdn.simpleicons.org/git/F05032.svg",
       },
       {
         name: "Docker",
         icon: "docker",
         description: "Containerization for consistent environments.",
         color: "#2496ED",
+        img: "https://cdn.simpleicons.org/docker/2496ED.svg",
       },
       {
         name: "AWS",
         icon: "amazonwebservices",
         description: "Cloud infrastructure and hosting services.",
         color: "#FF9900",
+        img: "https://cdn.simpleicons.org/amazonwebservices/FF9900.svg",
       },
       {
         name: "Supabase",
         icon: "supabase",
         description: "Open source Firebase alternative.",
         color: "#3ECF8E",
+        img: "https://cdn.simpleicons.org/supabase/3ECF8E.svg",
       },
       {
         name: "Firebase",
         icon: "firebase",
         description: "Backend-as-a-service platform.",
         color: "#FFCA28",
+        img: "https://cdn.simpleicons.org/firebase/FFCA28.svg",
       },
     ],
   },
@@ -186,7 +205,7 @@ export const PROJECTS: Project[] = [
     ],
     github: "https://github.com/GeoStrong/treasure-hunt-quiz",
     demo: "https://treasure-hunt-quiz.vercel.app",
-    imgSrc: "/images/treasure hunt logo.png",
+    imgSrc: treasureHuntLogo,
   },
   {
     title: "Admin Dashboard",
@@ -199,7 +218,7 @@ export const PROJECTS: Project[] = [
     ],
     github: "https://github.com/GeoStrong/admin-dashboard",
     demo: "https://admin-dashboard-inky-iota.vercel.app",
-    imgSrc: "/images/admin dashboard logo.png",
+    imgSrc: adminDashboardLogo,
   },
 ];
 

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { PERSONAL_INFO } from "../types/constants";
 import HeroScene from "./HeroScene";
+import { AiOutlineArrowDown } from "react-icons/ai";
 
 const Hero: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ const Hero: React.FC = () => {
 
           <motion.h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
             I'm{" "}
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               {PERSONAL_INFO.name.split(" ")[0]}
             </span>
           </motion.h1>
@@ -71,9 +72,13 @@ const Hero: React.FC = () => {
             </a>
             <a
               href="#projects"
-              className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] flex items-center"
+              className="px-8 text-center py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] flex items-center"
             >
-              View My Work
+              <span className="md:hidden text-xs flex justify-center gap-1 items-center">
+                Work
+                <AiOutlineArrowDown className="text-base" />
+              </span>
+              <span className="hidden md:inline-block">View My Work</span>
             </a>
           </motion.div>
         </motion.div>
@@ -84,9 +89,9 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative"
         >
-          <HeroScene />
+          {/* <HeroScene /> */}
           {/* Decorative gradients */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-[300px] h-[300px] bg-indigo-500/20 blur-[100px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-75 h-75 bg-indigo-500/20 blur-[100px] rounded-full" />
         </motion.div>
       </div>
 

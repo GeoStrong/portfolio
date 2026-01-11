@@ -25,7 +25,7 @@ const About: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="bg-gray-900/50 p-8 rounded-2xl border border-gray-800 shadow-xl"
         >
-          <p className="text-lg text-gray-300 leading-relaxed italic">
+          <p className="md:text-lg text-gray-300 leading-relaxed italic">
             "{PERSONAL_INFO.summary}"
           </p>
         </motion.div>

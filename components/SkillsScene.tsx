@@ -38,7 +38,7 @@ const SkillNode = ({
   const meshRef = useRef<THREE.Mesh>(null!);
 
   // Iconify PNG endpoint provides reliable raster textures for Three.js
-  const textureUrl = `https://api.iconify.design/simple-icons:${node.skill.icon}.png?color=white`;
+  const textureUrl = `${node.skill.img}`;
   const texture = useTexture(textureUrl);
 
   useFrame(() => {
@@ -213,13 +213,7 @@ const Tooltip = ({ skill }: { skill: SkillDetail | null }) => {
     <div className="absolute top-10 right-10 bg-gray-950/90 backdrop-blur-xl border border-indigo-500/40 p-5 rounded-2xl shadow-2xl max-w-xs pointer-events-none animate-in fade-in slide-in-from-right-4 duration-300 z-20 ring-1 ring-white/10">
       <div className="flex items-center space-x-3 mb-3">
         <div className="p-2 bg-indigo-500/20 rounded-lg border border-indigo-500/30">
-          <img
-            src={`https://api.iconify.design/simple-icons:${
-              skill.icon
-            }.svg?color=${skill.color.replace("#", "")}`}
-            className="w-6 h-6"
-            alt={skill.name}
-          />
+          <img src={skill.img} className="w-6 h-6" alt={skill.name} />
         </div>
         <h4 className="text-white font-bold text-xl">{skill.name}</h4>
       </div>
@@ -234,58 +228,60 @@ const SkillsScene: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<SkillDetail | null>(null);
 
   return (
-    <div className="w-full h-[600px] border border-gray-800 rounded-3xl bg-gray-950/60 overflow-hidden relative group shadow-2xl">
-      <Canvas
-        dpr={[1, 1.5]}
-        gl={{
-          powerPreference: "high-performance",
-          antialias: false,
-          alpha: true,
-        }}
-      >
-        <PerspectiveCamera makeDefault position={[0, 0, 10]} />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate={false}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI / 1.5}
-        />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[5, 5, 5]} intensity={1.5} />
-        <pointLight position={[-5, -5, -5]} color="#4338ca" intensity={1} />
-        <Stars
-          radius={50}
-          depth={50}
-          count={1000}
-          factor={4}
-          saturation={0}
-          fade
-          speed={1}
-        />
-        <PhysicsContainer onHover={setHoveredSkill} />
-
-        <mesh>
-          <boxGeometry
-            args={[
-              BOUNDS.x * 2 + RADIUS * 2,
-              BOUNDS.y * 2 + RADIUS * 2,
-              BOUNDS.z * 2 + RADIUS * 2,
-            ]}
+    <div className="w-full flex justify-center">
+      <div className="h-100 md:h-150 w-full md:w-2/3 mt-5 border border-gray-800 rounded-3xl bg-gray-950/60 overflow-hidden relative group shadow-2xl">
+        <Canvas
+          dpr={[1, 1.5]}
+          gl={{
+            powerPreference: "high-performance",
+            antialias: false,
+            alpha: true,
+          }}
+        >
+          <PerspectiveCamera makeDefault position={[0, 0, 10]} />
+          <OrbitControls
+            enableZoom={true}
+            enablePan={false}
+            autoRotate={false}
+            minPolarAngle={Math.PI / 3}
+            maxPolarAngle={Math.PI / 1.5}
           />
-          <meshBasicMaterial
-            color="#6366f1"
-            wireframe
-            transparent
-            opacity={0.02}
+          <ambientLight intensity={0.5} />
+          <pointLight position={[5, 5, 5]} intensity={1.5} />
+          <pointLight position={[-5, -5, -5]} color="#4338ca" intensity={1} />
+          <Stars
+            radius={50}
+            depth={50}
+            count={1000}
+            factor={4}
+            saturation={0}
+            fade
+            speed={1}
           />
-        </mesh>
-      </Canvas>
+          <PhysicsContainer onHover={setHoveredSkill} />
 
-      <Tooltip skill={hoveredSkill} />
+          <mesh>
+            <boxGeometry
+              args={[
+                BOUNDS.x * 2 + RADIUS * 2,
+                BOUNDS.y * 2 + RADIUS * 2,
+                BOUNDS.z * 2 + RADIUS * 2,
+              ]}
+            />
+            <meshBasicMaterial
+              color="#6366f1"
+              wireframe
+              transparent
+              opacity={0.02}
+            />
+          </mesh>
+        </Canvas>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 bg-indigo-950/80 backdrop-blur-md rounded-full border border-indigo-500/30 text-[10px] uppercase tracking-widest text-indigo-200 font-bold z-10 select-none shadow-lg">
-        Interactive 3D Workspace • Drag to rotate
+        <Tooltip skill={hoveredSkill} />
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2 bg-indigo-950/80 backdrop-blur-md rounded-full border border-indigo-500/30 text-[10px] uppercase tracking-widest text-indigo-200 font-bold z-10 select-none shadow-lg">
+          Interactive 3D Workspace • Drag to rotate
+        </div>
       </div>
     </div>
   );
