@@ -1,0 +1,54 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { SKILL_CATEGORIES } from "../types/constants";
+
+const Skills: React.FC = () => {
+  return (
+    <section id="skills" className="py-24 px-6 relative">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-5xl font-black mb-4">Tech Stack</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+            A comprehensive overview of the tools and technologies I use to
+            build robust and scalable web applications.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SKILL_CATEGORIES.map((category, idx) => (
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-gray-900/40 p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group backdrop-blur-sm h-full"
+            >
+              <h3 className="text-xl font-bold mb-6 text-indigo-400 group-hover:text-white transition-colors">
+                {category.name}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 bg-gray-800/50 text-gray-300 rounded-xl text-sm border border-gray-700/50 hover:border-indigo-500 hover:text-white hover:bg-indigo-500/10 transition-all cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
