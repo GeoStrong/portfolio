@@ -20,6 +20,7 @@ import References from "./components/References";
 import QuickNav from "./components/QuickNav";
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "./components/ThemeContext";
+import AIResumeChat from "./components/AIResumeChat";
 
 const App: React.FC = () => {
   return (
@@ -59,6 +60,8 @@ const App: React.FC = () => {
         </main>
 
         <Footer />
+
+        <AIResumeChat />
 
         {/* Background decoration elements */}
         <div className="fixed top-0 right-0 -z-20 w-[500px] h-[500px] bg-indigo-900/10 blur-[120px] rounded-full" />

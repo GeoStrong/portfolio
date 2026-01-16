@@ -19,9 +19,9 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center pt-32 px-6 relative overflow-hidden"
+      className="min-h-screen pb-10 flex flex-col items-center justify-center pt-32 px-6 relative overflow-hidden"
     >
-      <div className="px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="w-full md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex space-x-6"
+            className="flex flex-wrap gap-2"
           >
             <motion.a
               href={PERSONAL_INFO.contact.github}

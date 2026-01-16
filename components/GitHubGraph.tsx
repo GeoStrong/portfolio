@@ -39,7 +39,7 @@ const GitHubGraph: React.FC<GitHubGraphProps> = ({
             className="w-full rounded-xl"
             loading="lazy"
           />
-          <div className="mt-6 flex items-center justify-between flex-wrap gap-4">
+          <div className="mt-6 w-full flex items-center justify-center md:justify-between flex-wrap gap-4">
             <motion.a
               href={`https://github.com/${username}`}
               target="_blank"

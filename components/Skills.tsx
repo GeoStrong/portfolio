@@ -61,7 +61,9 @@ const Skills: React.FC = () => {
           ))}
         </div>
       </div>
-      <SkillsScene />
+      <div className="hidden md:block">
+        <SkillsScene />
+      </div>
     </section>
   );
 };

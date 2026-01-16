@@ -33,8 +33,10 @@ const Certifications: React.FC = () => {
               whileHover={{ y: -6, scale: 1.02 }}
               className="bg-gray-900/40 p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all backdrop-blur-sm group"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
-                <Award size={32} />
+              <div className="flex w-full justify-center md:justify-start">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500/10 rounded-2xl border border-indigo-500/20 text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+                  <Award size={32} />
+                </div>
               </div>
 
               <h3 className="text-xl font-bold text-white mb-2">{cert.name}</h3>
