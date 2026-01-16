@@ -150,14 +150,14 @@ const Hero: React.FC = () => {
           className="relative flex justify-center items-center order-1 lg:order-2"
         >
           {/* Profile Picture */}
-          <div className="relative w-[320px] h-80 md:w-90 md:h-90">
-            <div className="absolute inset-0 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-40 animate-pulse" />
+          <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full">
+            <div className="absolute inset-0 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-70 animate-pulse" />
             <div className="absolute inset-0 bg-linear-to-tr from-indigo-600 to-purple-600 rounded-full p-1">
-              <div className="w-full h-full bg-gray-900 rounded-full p-2">
+              <div className="w-full h-full bg-gray-900 rounded-full">
                 <motion.img
                   src={ProfileImage}
                   alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover rounded-full"
+                  className=" absolute -top-2 -left-2 md:h-90 md:-top-4 w-full h-80 object-cover rounded-full"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />
