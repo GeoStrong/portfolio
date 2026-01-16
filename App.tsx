@@ -42,7 +42,7 @@ const App: React.FC = () => {
 
         <Navbar />
 
-        <main className="relative">
+        <main className="relative overflow-x-hidden">
           <Hero />
           <About />
           <Achievements />
