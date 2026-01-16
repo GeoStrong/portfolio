@@ -42,7 +42,7 @@ const App: React.FC = () => {
 
         <Navbar />
 
-        <main>
+        <main className="relative">
           <Hero />
           <About />
           <Achievements />

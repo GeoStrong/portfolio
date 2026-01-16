@@ -14,6 +14,7 @@ import { PERSONAL_INFO } from "../types/constants";
 import HeroScene from "./HeroScene";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import SocialProof from "./SocialProof";
+import ProfileImage from "../src/images/Profile.png";
 
 const Hero: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-left z-10"
+          className="text-left z-10 order-2 lg:order-1"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -146,12 +147,23 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.8, x: 50 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center order-1 lg:order-2"
         >
-          {/* <HeroScene
-            location={PERSONAL_INFO.contact.location}
-            phone={PERSONAL_INFO.contact.phone}
-          /> */}
+          {/* Profile Picture */}
+          <div className="relative w-[320px] h-80 md:w-90 md:h-90">
+            <div className="absolute inset-0 bg-linear-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-40 animate-pulse" />
+            <div className="absolute inset-0 bg-linear-to-tr from-indigo-600 to-purple-600 rounded-full p-1">
+              <div className="w-full h-full bg-gray-900 rounded-full p-2">
+                <motion.img
+                  src={ProfileImage}
+                  alt={PERSONAL_INFO.name}
+                  className="w-full h-full object-cover rounded-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+            </div>
+          </div>
 
           {/* Decorative gradients */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-75 h-75 bg-indigo-500/20 blur-[100px] rounded-full" />

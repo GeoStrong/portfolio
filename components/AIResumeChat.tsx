@@ -116,7 +116,7 @@ const AIResumeChat: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="absolute bottom-20 right-0 w-screen sm:w-96 h-100 bg-gray-900 border border-gray-800 rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden backdrop-blur-2xl ring-1 ring-white/10"
+            className="absolute bottom-20 right-0 sm:w-96 h-100 bg-gray-900 border border-gray-800 rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden backdrop-blur-2xl ring-1 ring-white/10"
           >
             {/* Header */}
             <div className="p-6 bg-linear-to-r from-indigo-600 to-purple-600 flex justify-between items-center shrink-0">
