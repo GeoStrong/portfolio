@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
                 <motion.img
                   src={ProfileImage}
                   alt={PERSONAL_INFO.name}
-                  className=" absolute -top-2 -left-2 md:h-90 md:-top-4 w-full h-80 object-cover rounded-full"
+                  className=" absolute -top-2 right-1 md:h-90 md:-top-4 w-full h-80 object-cover rounded-full"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />
