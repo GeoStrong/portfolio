@@ -27,7 +27,7 @@ const App: React.FC = () => {
       <div className="relative">
         <ScrollProgress />
         <QuickNav />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
 
         <Suspense
           fallback={
