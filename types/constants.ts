@@ -437,9 +437,9 @@ export const ARTICLES: Article[] = [
 
 export const TIMELINE: TimelineEvent[] = [
   {
-    date: "Jan 2025",
-    title: "Front-end Developer at Tridan AI",
-    description: "Started working on cutting-edge AI-powered web applications",
+    date: "Dec 2025",
+    title: "Next.js / React / TypeScript Developer at RFID Cloaked Ltd",
+    description: "Began working on innovative RFID solutions",
     type: "work",
   },
   {
@@ -447,6 +447,12 @@ export const TIMELINE: TimelineEvent[] = [
     title: "Launched Treasure Hunt Project",
     description: "Interactive city-wide game with 30+ participants",
     type: "project",
+  },
+  {
+    date: "Jan 2025",
+    title: "Front-end Developer at Tridan AI",
+    description: "Started working on cutting-edge AI-powered web applications",
+    type: "work",
   },
   {
     date: "Dec 2024",
