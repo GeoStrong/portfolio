@@ -102,7 +102,7 @@ const HeroScene: React.FC<{ location?: string; phone?: string }> = ({
   phone,
 }) => {
   return (
-    <div className="w-full h-[420px] md:h-[520px] relative">
+    <div className="w-full h-105 md:h-130 relative">
       <Canvas
         shadows
         dpr={[1, 2]}

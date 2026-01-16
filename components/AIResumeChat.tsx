@@ -156,7 +156,7 @@ const AIResumeChat: React.FC = () => {
             {/* Chat Area */}
             <div
               ref={scrollRef}
-              className="flex-grow p-6 overflow-y-auto space-y-6 custom-scrollbar scroll-smooth"
+              className="grow p-6 overflow-y-auto space-y-6 custom-scrollbar scroll-smooth"
             >
               {messages.map((m, i) => (
                 <motion.div
@@ -249,7 +249,7 @@ const AIResumeChat: React.FC = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Type a question..."
-                className="flex-grow bg-gray-900 border border-gray-800 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+                className="grow bg-gray-900 border border-gray-800 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
               />
               <button
                 onClick={() => handleSend()}
@@ -267,7 +267,7 @@ const AIResumeChat: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-16 h-16 bg-indigo-600 text-white rounded-[1.5rem] shadow-2xl shadow-indigo-500/40 flex items-center justify-center relative group overflow-hidden"
+        className="w-16 h-16 bg-indigo-600 text-white rounded-3xl shadow-2xl shadow-indigo-500/40 flex items-center justify-center relative group overflow-hidden"
       >
         <motion.div
           animate={
@@ -287,7 +287,7 @@ const AIResumeChat: React.FC = () => {
         </motion.div>
 
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
         <AnimatePresence>
           {!isOpen && (
@@ -299,7 +299,7 @@ const AIResumeChat: React.FC = () => {
             >
               <Sparkles size={14} className="text-yellow-400" />
               Ask Giorgi's AI
-              <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-900 border-r border-b border-gray-800 rotate-[-45deg]" />
+              <div className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-900 border-r border-b border-gray-800 -rotate-45" />
             </motion.div>
           )}
         </AnimatePresence>
