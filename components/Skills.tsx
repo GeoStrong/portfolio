@@ -34,14 +34,27 @@ const Skills: React.FC = () => {
               <h3 className="text-xl font-bold mb-6 text-indigo-400 group-hover:text-white transition-colors">
                 {category.name}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-4">
                 {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-4 py-2 bg-gray-800/50 text-gray-300 rounded-xl text-sm border border-gray-700/50 hover:border-indigo-500 hover:text-white hover:bg-indigo-500/10 transition-all cursor-default"
-                  >
-                    {skill}
-                  </span>
+                  <div key={skill.name} className="group/skill">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-gray-300 group-hover/skill:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                      <span className="text-xs font-bold text-indigo-400">
+                        {skill.proficiency}%
+                      </span>
+                    </div>
+                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.proficiency}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: idx * 0.1 }}
+                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full group-hover/skill:shadow-[0_0_10px_rgba(99,102,241,0.5)] transition-shadow"
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
             </motion.div>

@@ -240,7 +240,7 @@ const SkillsScene: React.FC = () => {
         >
           <PerspectiveCamera makeDefault position={[0, 0, 10]} />
           <OrbitControls
-            enableZoom={true}
+            enableZoom={false}
             enablePan={false}
             autoRotate={false}
             minPolarAngle={Math.PI / 3}

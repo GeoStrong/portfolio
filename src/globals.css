@@ -8,6 +8,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 ::selection {
   background-color: #6366f1;
   color: white;
@@ -29,4 +39,71 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #818cf8;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  nav,
+  footer,
+  .no-print,
+  button,
+  #quick-nav,
+  .scroll-progress {
+    display: none !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+}
+
+/* Light Theme Support */
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+}
+
+.light body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.light .bg-gray-950,
+.light .bg-gray-900 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.light .text-gray-400,
+.light .text-gray-300 {
+  color: var(--text-secondary) !important;
+}
+
+.light .border-gray-800,
+.light .border-gray-700 {
+  border-color: var(--border-color) !important;
 }

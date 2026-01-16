@@ -36,7 +36,10 @@ const ExperienceSection: React.FC = () => {
                 <Briefcase size={10} className="text-indigo-500" />
               </div>
 
-              <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-indigo-500/30 transition-all group">
+              <motion.div
+                whileHover={{ y: -4, scale: 1.005 }}
+                className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-indigo-500/30 transition-all group"
+              >
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">
@@ -57,7 +60,7 @@ const ExperienceSection: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

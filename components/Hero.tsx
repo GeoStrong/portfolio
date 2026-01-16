@@ -1,9 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ArrowDown,
+  Download,
+  CheckCircle,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { PERSONAL_INFO } from "../types/constants";
 import HeroScene from "./HeroScene";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import SocialProof from "./SocialProof";
 
 const Hero: React.FC = () => {
   return (
@@ -11,7 +21,7 @@ const Hero: React.FC = () => {
       id="home"
       className="min-h-screen flex flex-col items-center justify-center pt-32 px-6 relative overflow-hidden"
     >
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -22,9 +32,11 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-sm font-bold mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-bold mb-6"
           >
-            Available for New Opportunities
+            <CheckCircle size={16} />
+            {PERSONAL_INFO.availability.status} •{" "}
+            {PERSONAL_INFO.availability.startDate}
           </motion.div>
 
           <motion.h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-none">
@@ -50,46 +62,97 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.5 }}
             className="flex space-x-6"
           >
-            <a
+            <motion.a
               href={PERSONAL_INFO.contact.github}
               target="_blank"
-              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all hover:-translate-y-1"
+              whileHover={{ y: -3, scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all"
             >
               <Github size={24} />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={PERSONAL_INFO.contact.linkedin}
               target="_blank"
-              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all hover:-translate-y-1"
+              whileHover={{ y: -3, scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all"
             >
               <Linkedin size={24} />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href={`mailto:${PERSONAL_INFO.contact.email}`}
-              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all hover:-translate-y-1"
+              whileHover={{ y: -3, scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              className="p-4 bg-gray-900 rounded-2xl border border-gray-800 text-gray-400 hover:text-white hover:border-indigo-500 transition-all"
             >
               <Mail size={24} />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              href={PERSONAL_INFO.resumeUrl}
+              download
+              whileHover={{
+                y: -2,
+                scale: 1.02,
+                boxShadow: "0 10px 30px rgba(79,70,229,0.25)",
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="px-6 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all flex items-center gap-2"
+            >
+              <Download size={18} />
+              <span className="hidden md:inline-block">Download CV</span>
+            </motion.a>
+            <motion.a
               href="#projects"
-              className="px-8 text-center py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] flex items-center"
+              whileHover={{
+                y: -2,
+                scale: 1.02,
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="px-8 text-center py-4 bg-gray-900 border border-gray-800 hover:border-indigo-500 text-white font-bold rounded-2xl transition-all flex items-center"
             >
               <span className="md:hidden text-xs flex justify-center gap-1 items-center">
                 Work
                 <AiOutlineArrowDown className="text-base" />
               </span>
               <span className="hidden md:inline-block">View My Work</span>
+            </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="mt-6 flex items-center gap-6 text-sm text-gray-400"
+          >
+            <div className="flex items-center gap-2 hover:text-white transition-colors">
+              <MapPin size={16} />
+              <span>{PERSONAL_INFO.contact.location}</span>
+            </div>
+
+            <a
+              href={`tel:${PERSONAL_INFO.contact.phone}`}
+              className="flex items-center gap-2 hover:text-white transition-colors"
+            >
+              <Phone size={16} />
+              <span>{PERSONAL_INFO.contact.phone}</span>
             </a>
           </motion.div>
+
+          <SocialProof />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8, x: 50 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative"
+          className="relative flex justify-center items-center"
         >
-          {/* <HeroScene /> */}
+          {/* <HeroScene
+            location={PERSONAL_INFO.contact.location}
+            phone={PERSONAL_INFO.contact.phone}
+          /> */}
+
           {/* Decorative gradients */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-75 h-75 bg-indigo-500/20 blur-[100px] rounded-full" />
         </motion.div>

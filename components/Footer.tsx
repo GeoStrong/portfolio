@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { PERSONAL_INFO } from "../types/constants";
 
 const Footer: React.FC = () => {
@@ -15,18 +16,22 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex space-x-6">
-          <a
+          <motion.a
             href={PERSONAL_INFO.contact.github}
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="text-gray-400 hover:text-white transition-colors"
           >
             Github
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={PERSONAL_INFO.contact.linkedin}
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="text-gray-400 hover:text-white transition-colors"
           >
             LinkedIn
-          </a>
+          </motion.a>
         </div>
       </div>
     </footer>

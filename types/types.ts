@@ -17,7 +17,7 @@ export interface Project {
 
 export interface SkillCategory {
   name: string;
-  skills: string[];
+  skills: Array<{ name: string; proficiency: number }>;
 }
 
 export interface Education {
@@ -30,4 +30,52 @@ export interface Education {
 export interface Language {
   name: string;
   level: string;
+}
+
+export interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  image?: string;
+  linkedin?: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  icon?: string;
+}
+
+export interface Achievement {
+  title: string;
+  value: string | number;
+  suffix?: string;
+  description: string;
+  icon: string;
+}
+
+export interface Article {
+  title: string;
+  platform: string;
+  url: string;
+  date: string;
+  readTime?: string;
+  thumbnail?: string;
+}
+
+export interface TimelineEvent {
+  date: string;
+  title: string;
+  description: string;
+  type: "education" | "work" | "project" | "achievement";
+  icon?: string;
+}
+
+export interface SkillWithProficiency {
+  name: string;
+  proficiency: number; // 1-100
 }

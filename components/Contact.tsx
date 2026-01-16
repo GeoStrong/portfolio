@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, easeInOut } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -36,6 +36,14 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
   const [sendError, setSendError] = useState<string>("");
+
+  const errorShake = {
+    idle: { x: 0 },
+    error: {
+      x: [0, -6, 6, -6, 4, -4, 0],
+      transition: { duration: 0.35, ease: easeInOut },
+    },
+  };
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -126,7 +134,7 @@ const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-black mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-linear-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -198,14 +206,20 @@ const Contact: React.FC = () => {
                 <label className="text-sm font-medium text-gray-400">
                   Your Name
                 </label>
-                <input
+                <motion.input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  aria-invalid={Boolean(errors.name)}
                   className={`w-full bg-gray-900 border ${
-                    errors.name ? "border-red-500" : "border-gray-800"
+                    errors.name
+                      ? "border-red-500 shadow-[0_0_0_3px_rgba(239,68,68,0.25)]"
+                      : "border-gray-800"
                   } rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-colors`}
+                  variants={errorShake}
+                  animate={errors.name ? "error" : "idle"}
+                  initial={false}
                   placeholder="John Doe"
                 />
                 {errors.name && (
@@ -218,14 +232,20 @@ const Contact: React.FC = () => {
                 <label className="text-sm font-medium text-gray-400">
                   Email Address
                 </label>
-                <input
+                <motion.input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  aria-invalid={Boolean(errors.email)}
                   className={`w-full bg-gray-900 border ${
-                    errors.email ? "border-red-500" : "border-gray-800"
+                    errors.email
+                      ? "border-red-500 shadow-[0_0_0_3px_rgba(239,68,68,0.25)]"
+                      : "border-gray-800"
                   } rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-colors`}
+                  variants={errorShake}
+                  animate={errors.email ? "error" : "idle"}
+                  initial={false}
                   placeholder="john@example.com"
                 />
                 {errors.email && (
@@ -239,14 +259,20 @@ const Contact: React.FC = () => {
               <label className="text-sm font-medium text-gray-400">
                 Subject
               </label>
-              <input
+              <motion.input
                 type="text"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
+                aria-invalid={Boolean(errors.subject)}
                 className={`w-full bg-gray-900 border ${
-                  errors.subject ? "border-red-500" : "border-gray-800"
+                  errors.subject
+                    ? "border-red-500 shadow-[0_0_0_3px_rgba(239,68,68,0.25)]"
+                    : "border-gray-800"
                 } rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-colors`}
+                variants={errorShake}
+                animate={errors.subject ? "error" : "idle"}
+                initial={false}
                 placeholder="Collaboration opportunity"
               />
               {errors.subject && (
@@ -259,14 +285,20 @@ const Contact: React.FC = () => {
               <label className="text-sm font-medium text-gray-400">
                 Message
               </label>
-              <textarea
+              <motion.textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
+                aria-invalid={Boolean(errors.message)}
                 className={`w-full bg-gray-900 border ${
-                  errors.message ? "border-red-500" : "border-gray-800"
+                  errors.message
+                    ? "border-red-500 shadow-[0_0_0_3px_rgba(239,68,68,0.25)]"
+                    : "border-gray-800"
                 } rounded-xl px-4 py-3 focus:outline-none focus:border-indigo-500 transition-colors resize-none`}
+                variants={errorShake}
+                animate={errors.message ? "error" : "idle"}
+                initial={false}
                 placeholder="Hi, I'd like to talk about..."
               />
               {errors.message && (
@@ -284,9 +316,11 @@ const Contact: React.FC = () => {
               </div>
             )}
 
-            <button
+            <motion.button
               type="submit"
               disabled={isSubmitting}
+              whileHover={!isSubmitting ? { y: -2, scale: 1.01 } : undefined}
+              whileTap={!isSubmitting ? { scale: 0.98 } : undefined}
               className={`w-full ${
                 isSent ? "bg-green-600" : "bg-indigo-600 hover:bg-indigo-500"
               } text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed`}
@@ -325,7 +359,7 @@ const Contact: React.FC = () => {
                   Send Message <Send size={18} className="ml-2" />
                 </span>
               )}
-            </button>
+            </motion.button>
           </motion.form>
         </div>
       </div>

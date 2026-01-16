@@ -27,6 +27,11 @@ const ProjectsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
+              whileHover={{
+                y: -6,
+                scale: 1.01,
+                borderColor: "rgba(99,102,241,0.4)",
+              }}
               className="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-indigo-500/30 transition-all flex flex-col group"
             >
               <div className="h-64 overflow-hidden relative">
@@ -70,20 +75,24 @@ const ProjectsSection: React.FC = () => {
                 </ul>
 
                 <div className="flex space-x-4 pt-4 border-t border-gray-800">
-                  <a
+                  <motion.a
                     href={project.github}
                     target="_blank"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className="flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors"
                   >
                     <Github size={18} className="mr-2" /> Code
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href={project.demo}
                     target="_blank"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
                   >
                     <ExternalLink size={18} className="mr-2" /> Live Demo
-                  </a>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
