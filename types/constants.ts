@@ -12,6 +12,7 @@ import {
 } from "./types";
 import treasureHuntLogo from "../src/images/treasure-hunt-logo.png";
 import adminDashboardLogo from "../src/images/admin-dashboard-logo.png";
+import activitiesTbilisiLogo from "../src/images/activities-tbilisi.png";
 
 export const PERSONAL_INFO = {
   name: "Giorgi Jobava",
@@ -204,6 +205,17 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    title: "What's On Tbilisi - Event Discovery Platform",
+    date: "November 2025 - Present",
+    tags: ["Next.js 15", "TypeScript", "Supabase", "Tailwind CSS"],
+    description: [
+      "A modern event discovery and social platform for Tbilisi, Georgia. Discover, create, and participate in local activities and events.",
+    ],
+    github: "https://github.com/GeoStrong/whats-on-tbilisi",
+    demo: "https://whats-on-tbilisi.vercel.app/",
+    imgSrc: activitiesTbilisiLogo,
+  },
   {
     title: "Interactive Treasure Hunt Website",
     date: "June 2025",
