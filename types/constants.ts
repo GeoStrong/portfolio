@@ -10,10 +10,10 @@ import {
   Article,
   TimelineEvent,
 } from "./types";
-import treasureHuntLogo from "../src/images/treasure-hunt-logo.png";
-import adminDashboardLogo from "../src/images/admin-dashboard-logo.png";
-import activitiesTbilisiLogo from "../src/images/activities-tbilisi.png";
-import lovebirdsLogo from "../src/images/lovebirds-logo.png";
+import treasureHuntLogo from "@/src/images/treasure-hunt-logo.png";
+import adminDashboardLogo from "@/src/images/admin-dashboard-logo.png";
+import activitiesTbilisiLogo from "@/src/images/activities-tbilisi.png";
+import lovebirdsLogo from "@/src/images/lovebirds-logo.png";
 
 export const PERSONAL_INFO = {
   name: "Giorgi Jobava",

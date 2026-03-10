@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Heart, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import lovebirdsLogo from "../../../src/images/lovebirds-icon.png";
+import lovebirdsLogo from "@/src/images/lovebirds-icon.png";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
