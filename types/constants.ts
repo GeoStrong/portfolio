@@ -13,6 +13,7 @@ import {
 import treasureHuntLogo from "../src/images/treasure-hunt-logo.png";
 import adminDashboardLogo from "../src/images/admin-dashboard-logo.png";
 import activitiesTbilisiLogo from "../src/images/activities-tbilisi.png";
+import lovebirdsLogo from "../src/images/lovebirds-logo.png";
 
 export const PERSONAL_INFO = {
   name: "Giorgi Jobava",
@@ -205,6 +206,18 @@ export const EXPERIENCES: Experience[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    title: "Lovebirds - AI Relationship Navigator",
+    date: "2026 - Present",
+    tags: ["React Native", "Expo", "Supabase", "AI"],
+    description: [
+      "A gamified, AI-powered mobile app designed to help couples and individuals improve communication, build emotional connection, and strengthen relationships.",
+      "Features AI-powered conflict resolution, daily quests, couple quizzes, and a shared couple space with interactive elements.",
+      "Combines emotional intelligence with gamification to make relationship growth feel fun, safe, and rewarding.",
+    ],
+    demo: "/lovebirds",
+    imgSrc: lovebirdsLogo,
+  },
   {
     title: "What's On Tbilisi - Event Discovery Platform",
     date: "November 2025 - Present",

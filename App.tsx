@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -21,52 +22,72 @@ import QuickNav from "./components/QuickNav";
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeProvider } from "./components/ThemeContext";
 import AIResumeChat from "./components/AIResumeChat";
+// AI App Pages
+import AIAppLayout from "./pages/lovebirds/AIAppLayout";
+import AIAppLanding from "./pages/lovebirds/AIAppLanding";
+import AIAppPrivacy from "./pages/lovebirds/AIAppPrivacy";
+import AIAppTerms from "./pages/lovebirds/AIAppTerms";
+
+const PortfolioApp: React.FC = () => {
+  return (
+    <div className="relative">
+      <ScrollProgress />
+      <QuickNav />
+      {/* <ThemeToggle /> */}
+
+      <Suspense
+        fallback={
+          <div className="fixed inset-0 bg-gray-950 flex items-center justify-center text-indigo-500 font-bold">
+            Loading Experience...
+          </div>
+        }
+      >
+        <ThreeBackground />
+      </Suspense>
+
+      <Navbar />
+
+      <main className="relative overflow-x-hidden">
+        <Hero />
+        <About />
+        <Achievements />
+        <Skills />
+        <ExperienceSection />
+        <Timeline />
+        <ProjectsSection />
+        {/* <Testimonials /> */}
+        <Certifications />
+        <GitHubGraph />
+        {/* <Articles /> */}
+        <EduLangSection />
+        {/* <References /> */}
+        <Contact />
+      </main>
+
+      <Footer />
+
+      <AIResumeChat />
+
+      {/* Background decoration elements */}
+      <div className="fixed top-0 right-0 -z-20 w-125 h-125 bg-indigo-900/10 blur-[120px] rounded-full" />
+      <div className="fixed bottom-0 left-0 -z-20 w-125 h-125 bg-purple-900/10 blur-[120px] rounded-full" />
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="relative">
-        <ScrollProgress />
-        <QuickNav />
-        {/* <ThemeToggle /> */}
-
-        <Suspense
-          fallback={
-            <div className="fixed inset-0 bg-gray-950 flex items-center justify-center text-indigo-500 font-bold">
-              Loading Experience...
-            </div>
-          }
-        >
-          <ThreeBackground />
-        </Suspense>
-
-        <Navbar />
-
-        <main className="relative overflow-x-hidden">
-          <Hero />
-          <About />
-          <Achievements />
-          <Skills />
-          <ExperienceSection />
-          <Timeline />
-          <ProjectsSection />
-          {/* <Testimonials /> */}
-          <Certifications />
-          <GitHubGraph />
-          {/* <Articles /> */}
-          <EduLangSection />
-          {/* <References /> */}
-          <Contact />
-        </main>
-
-        <Footer />
-
-        <AIResumeChat />
-
-        {/* Background decoration elements */}
-        <div className="fixed top-0 right-0 -z-20 w-[500px] h-[500px] bg-indigo-900/10 blur-[120px] rounded-full" />
-        <div className="fixed bottom-0 left-0 -z-20 w-[500px] h-[500px] bg-purple-900/10 blur-[120px] rounded-full" />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PortfolioApp />} />
+          <Route path="/lovebirds" element={<AIAppLayout />}>
+            <Route index element={<AIAppLanding />} />
+            <Route path="privacy" element={<AIAppPrivacy />} />
+            <Route path="terms" element={<AIAppTerms />} />
+          </Route>
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 };

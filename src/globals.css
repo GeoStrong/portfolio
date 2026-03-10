@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
+/* Dark Theme (Default) */
+:root {
+  --bg-primary: #030712;
+  --bg-secondary: #0f172a;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #1e293b;
+  --accent-primary: #6366f1;
+  --accent-hover: #818cf8;
+}
+
 body {
   font-family: "Inter", sans-serif;
-  background-color: #030712;
-  color: #f3f4f6;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   margin: 0;
   overflow-x: hidden;
 }
@@ -19,7 +30,7 @@ html {
 }
 
 ::selection {
-  background-color: #6366f1;
+  background-color: var(--accent-primary);
   color: white;
 }
 
@@ -29,16 +40,32 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
+  background: var(--accent-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+  background: var(--accent-hover);
+}
+
+/* Light Theme */
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-primary: #6366f1;
+  --accent-hover: #818cf8;
+}
+
+.light body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 /* Print Styles */
@@ -77,25 +104,6 @@ html {
     content: " (" attr(href) ")";
     font-size: 80%;
   }
-}
-
-/* Light Theme Support */
-.light {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
-}
-
-.light body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.light .bg-gray-950,
-.light .bg-gray-900 {
-  background-color: var(--bg-secondary) !important;
 }
 
 .light .text-gray-400,
